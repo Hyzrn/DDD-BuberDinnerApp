@@ -1,6 +1,8 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Authentication;
+using BuberDinner.Application.Common.Interfaces.Persistance;
 using BuberDinner.Application.Common.Interfaces.Services;
 using BuberDinner.Infrastructure.Authentication;
+using BuberDinner.Infrastructure.Persistance;
 using BuberDinner.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,9 @@ namespace BuberDinner.Infrastructure
 
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+            
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDinnerRepository, DinnerRepository>();
 
             return services;
         }
