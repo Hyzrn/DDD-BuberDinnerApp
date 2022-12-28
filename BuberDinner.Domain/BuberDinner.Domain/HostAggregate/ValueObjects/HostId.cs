@@ -10,7 +10,7 @@ public sealed class HostId : ValueObject
 
     public static HostId Create(string hostId)
     {
-        return new(hostId);
+        return new HostId(hostId);
     }
 
     protected override IEnumerable<object> GetEqualityComponents()
